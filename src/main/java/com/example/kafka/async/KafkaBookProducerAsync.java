@@ -22,7 +22,7 @@ public class KafkaBookProducerAsync {
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
-        // [ 동기 전송 ]
+        // [ 비동기 전송 ]
         // Properties 오브젝트를 전달하여 새 프로듀서를 생성한다.
         // 참고) 아래의 코드에 의해서 producer.close() 메소드를 호출하고, 이를 통해 커넥션 리소스를 정리해준다.
         try (Producer<String, String> producer = new KafkaProducer<>(props)) {
