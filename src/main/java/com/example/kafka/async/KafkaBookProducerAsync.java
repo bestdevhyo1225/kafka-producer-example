@@ -18,6 +18,9 @@ public class KafkaBookProducerAsync {
         // 브로커 리스트를 정의한다.
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConfigValue.BOOTSTRAP_SERVERS);
 
+        // Ack 모드를 1로 설정
+        props.put(ProducerConfig.ACKS_CONFIG, ProducerConfigValue.ACK_1);
+
         // 메시지의 키와 값에 문자열을 사용할 예정이므로, 내장된 StringSerializer를 지정한다.
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
