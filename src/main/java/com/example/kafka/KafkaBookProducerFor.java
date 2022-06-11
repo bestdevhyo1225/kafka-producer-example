@@ -29,8 +29,10 @@ public class KafkaBookProducerFor {
         // 참고) 아래의 코드에 의해서 producer.close() 메소드를 호출하고, 이를 통해 커넥션 리소스를 정리해준다.
         try (Producer<String, String> producer = new KafkaProducer<>(props)) {
             // ProducerRecord 오브젝트를 생성하고, send() 메소드를 사용해 hyo-topic 으로 메시지를 전송한다.
-            for (int i = 0; i < 10; i++) {
-                producer.send(new ProducerRecord<>("hyo-topic", "Apache Kafka is a distributed streaming platform"));
+            for (int i = 0; i < 100; i++) {
+                producer.send(
+                    new ProducerRecord<>(KafkaTopic.HYO_TOPIC, "Apache Kafka is a distributed streaming platform")
+                );
             }
         } catch (Exception exception) {
             exception.printStackTrace();
