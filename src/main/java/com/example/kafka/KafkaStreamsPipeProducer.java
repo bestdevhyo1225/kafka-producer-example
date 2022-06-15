@@ -10,9 +10,9 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class KafkaStreamsProducer {
+public class KafkaStreamsPipeProducer {
 
-    private static final Logger logger = LoggerFactory.getLogger(KafkaStreamsProducer.class);
+    private static final Logger logger = LoggerFactory.getLogger(KafkaStreamsPipeProducer.class);
 
     public static void main(String[] args) {
         Properties props = new Properties();
