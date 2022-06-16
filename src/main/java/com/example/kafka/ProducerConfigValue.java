@@ -6,4 +6,5 @@ public abstract class ProducerConfigValue {
     public static final String ACK_1 = "1";
     public static final String ACK_ALL = "all"; // -1 값과 동일하다.
     public static final String COMPRESSION_TYPE_GZIP = "gzip";
+    public static final String LINGER_MS = "1000";
 }
