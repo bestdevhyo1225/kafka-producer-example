@@ -18,7 +18,7 @@ public class KafkaStreamsPipeProducerFor {
 
         try (Producer<String, String> producer = new KafkaProducer<>(props)) {
             for (int i = 0; i < 100; i++) {
-                producer.send(new ProducerRecord<>(KafkaTopic.STREAMS_PLAINTEXT_INPUT, "Kafka Streams!"));
+                producer.send(new ProducerRecord<>(KafkaTopic.STREAMS_PLAINTEXT_INPUT, "Kafka is Good"));
             }
         } catch (Exception exception) {
             exception.printStackTrace();
