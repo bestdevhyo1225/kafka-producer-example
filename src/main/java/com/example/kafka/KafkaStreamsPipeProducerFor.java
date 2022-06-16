@@ -17,7 +17,7 @@ public class KafkaStreamsPipeProducerFor {
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
         try (Producer<String, String> producer = new KafkaProducer<>(props)) {
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 50; i++) {
                 producer.send(new ProducerRecord<>(KafkaTopic.STREAMS_PLAINTEXT_INPUT, "Kafka is Good"));
             }
         } catch (Exception exception) {
