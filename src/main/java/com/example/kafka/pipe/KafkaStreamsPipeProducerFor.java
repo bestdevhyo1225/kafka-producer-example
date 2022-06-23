@@ -25,11 +25,14 @@ public class KafkaStreamsPipeProducerFor {
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
         try (Producer<String, String> producer = new KafkaProducer<>(props)) {
-            for (int i = 0; i < 10; i++) {
-                producer.send(
-                    new ProducerRecord<>(KafkaTopic.STREAMS_PLAINTEXT_INPUT, "Kafka is Good"),
-                    new KafkaStreamsPipeAsyncCallback()
-                );
+            for (int outerIndex = 0; outerIndex < 3; outerIndex++) {
+                for (int innerIndex = 0; innerIndex < 10; innerIndex++) {
+                    producer.send(
+                        new ProducerRecord<>(KafkaTopic.STREAMS_PLAINTEXT_INPUT, "Kafka is Good"),
+                        new KafkaStreamsPipeAsyncCallback()
+                    );
+                }
+                Thread.sleep(1000);
             }
         } catch (Exception exception) {
             exception.printStackTrace();
