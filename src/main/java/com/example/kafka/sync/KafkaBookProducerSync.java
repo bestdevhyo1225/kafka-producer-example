@@ -26,6 +26,22 @@ public class KafkaBookProducerSync {
         // Ack 모드를 1로 설정
         props.put(ProducerConfig.ACKS_CONFIG, ProducerConfigValue.ACK_1);
 
+        // 잠시 대기 (배치 전송이나 딜레이 등등..) 할 수 있는 전체 메모리 바이트
+        props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, ProducerConfigValue.BUFFER_MEMORY);
+
+        // 메시지를 압축해서 보낼 수 있는데, 어떤 타입으로 압축할 지 정한다.
+        props.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, ProducerConfigValue.COMPRESSION_TYPE_LZ4);
+
+        // 메시지를 다시 보내는 횟수
+        props.put(ProducerConfig.RETRIES_CONFIG, ProducerConfigValue.RETRIES);
+
+        // 같은 파티션으로 보내는 여러 데이터를 함께 배치로 보내려고 시도하는데, 배치의 크기를 바이트 단위로 조정할 수 있다.
+        props.put(ProducerConfig.BATCH_SIZE_CONFIG, ProducerConfigValue.BATCH_SIZE);
+
+        // 배치 형태의 메시지를 보내기 전에 추가적인 메시지들을 위해 기다리는 시간을 조정한다.
+        // batch.size 값에 도달하지 못한 상황에서 linger.ms 제한 시간에 도달했을 때, 메시지들을 전송한다.
+        props.put(ProducerConfig.LINGER_MS_CONFIG, ProducerConfigValue.LINGER_MS);
+
         // 메시지의 키와 값에 문자열을 사용할 예정이므로, 내장된 StringSerializer를 지정한다.
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
