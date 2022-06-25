@@ -11,4 +11,5 @@ public abstract class ProducerConfigValue {
     public static final int RETRIES = 1;
     public static final int BATCH_SIZE = 500000;
     public static final int LINGER_MS = 50;
+    public static final int MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION = 1;
 }

@@ -42,6 +42,11 @@ public class KafkaBookProducerSync {
         // batch.size 값에 도달하지 못한 상황에서 linger.ms 제한 시간에 도달했을 때, 메시지들을 전송한다.
         props.put(ProducerConfig.LINGER_MS_CONFIG, ProducerConfigValue.LINGER_MS);
 
+        // 이 값은 KafkaProducer 클라이언트가 하나의 브로커로 동시에 전송할 수 있는 요청 수를 의미한다.
+        // retries 설정값이 1 이상인 경우 재시도하기 때문에 max.in.flight.requests.per.connection 값이 1보다 크면 순서가 바뀔 수 있다.
+        // 순서를 보장하려면 max.in.flight.requests.per.connection 값을 1로 설정해야 한다.
+        props.put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, ProducerConfigValue.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION);
+
         // 메시지의 키와 값에 문자열을 사용할 예정이므로, 내장된 StringSerializer를 지정한다.
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
