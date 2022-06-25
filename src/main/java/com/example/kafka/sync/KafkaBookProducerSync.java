@@ -45,6 +45,7 @@ public class KafkaBookProducerSync {
         // 이 값은 KafkaProducer 클라이언트가 하나의 브로커로 동시에 전송할 수 있는 요청 수를 의미한다.
         // retries 설정값이 1 이상인 경우 재시도하기 때문에 max.in.flight.requests.per.connection 값이 1보다 크면 순서가 바뀔 수 있다.
         // 순서를 보장하려면 max.in.flight.requests.per.connection 값을 1로 설정해야 한다.
+        // 하지만 이렇게 설정하면 동시에 1개의 요청만 처리할 수 있기 때문에 전송 성능이 떨어질 수 있다.
         props.put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, ProducerConfigValue.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION);
 
         // 메시지의 키와 값에 문자열을 사용할 예정이므로, 내장된 StringSerializer를 지정한다.
