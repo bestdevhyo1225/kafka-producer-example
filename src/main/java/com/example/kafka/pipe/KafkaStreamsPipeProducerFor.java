@@ -14,14 +14,14 @@ public class KafkaStreamsPipeProducerFor {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConfigValue.BOOTSTRAP_SERVERS);
-        props.put(ProducerConfig.ACKS_CONFIG, ProducerConfigValue.ACK_1);
-        props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, ProducerConfigValue.BUFFER_MEMORY);
-        props.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, ProducerConfigValue.COMPRESSION_TYPE_LZ4);
-        props.put(ProducerConfig.RETRIES_CONFIG, ProducerConfigValue.RETRIES);
-        props.put(ProducerConfig.BATCH_SIZE_CONFIG, ProducerConfigValue.BATCH_SIZE);
-        props.put(ProducerConfig.LINGER_MS_CONFIG, ProducerConfigValue.LINGER_MS);
-        props.put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, ProducerConfigValue.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION);
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, PipeProducerConfigValue.BOOTSTRAP_SERVERS);
+        props.put(ProducerConfig.ACKS_CONFIG, PipeProducerConfigValue.ACK_1);
+        props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, PipeProducerConfigValue.BUFFER_MEMORY);
+        props.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, PipeProducerConfigValue.COMPRESSION_TYPE_LZ4);
+        props.put(ProducerConfig.RETRIES_CONFIG, PipeProducerConfigValue.RETRIES);
+        props.put(ProducerConfig.BATCH_SIZE_CONFIG, PipeProducerConfigValue.BATCH_SIZE);
+        props.put(ProducerConfig.LINGER_MS_CONFIG, PipeProducerConfigValue.LINGER_MS);
+        props.put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, PipeProducerConfigValue.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
