@@ -1,7 +1,6 @@
 package com.example.kafka.pipe;
 
 import com.example.kafka.KafkaTopic;
-import com.example.kafka.ProducerConfigValue;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
